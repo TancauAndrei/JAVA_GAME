@@ -26,6 +26,7 @@ public class Game implements Runnable {
 
     private Playing playing;
     private Menu menu;
+    private Pause pause;
 
     public Game (){
         initClasses();
@@ -40,6 +41,7 @@ public class Game implements Runnable {
     private void initClasses() {
         menu = new Menu(this);
         playing = new Playing(this);
+        pause = new Pause(this);
     }
 
     private void startGameLoop(){
@@ -51,6 +53,7 @@ public class Game implements Runnable {
         switch (GameStates.state){
             case MENU -> menu.update();
             case PLAYING ->playing.update();
+            case PAUSED -> pause.update();
         }
     }
 
@@ -58,6 +61,7 @@ public class Game implements Runnable {
         switch (GameStates.state){
             case MENU -> menu.render(g);
             case PLAYING ->playing.render(g);
+            case PAUSED -> pause.render(g);
         }
     }
 
@@ -119,6 +123,9 @@ public class Game implements Runnable {
 
     public Playing getPlaying(){
         return playing;
+    }
+    public  Pause getPause(){
+        return pause;
     }
 
 }
