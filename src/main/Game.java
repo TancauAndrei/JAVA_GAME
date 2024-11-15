@@ -38,6 +38,7 @@ public class Game implements Runnable {
         startGameLoop();
     }
 
+
     private void initClasses() {
         menu = new Menu(this);
         playing = new Playing(this);

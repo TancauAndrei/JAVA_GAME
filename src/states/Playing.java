@@ -1,8 +1,10 @@
 package states;
 
+import entities.Entity;
 import entities.Player;
 import levels.LevelManager;
 import main.Game;
+import main.MainClass;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -78,8 +80,6 @@ public class Playing extends State implements StateMethods{
                 break;
             case KeyEvent.VK_ESCAPE:
                 GameStates.state = GameStates.PAUSED;
-
-
         }
     }
 
